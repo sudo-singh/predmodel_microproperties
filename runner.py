@@ -18,9 +18,20 @@ gb.set_working_frame()
 gb.feature_label_splitter()
 gb.test_train_split()
 gb.standard_normalize()
-gb.rfr()
-# gb.boost()
+# gb.rfr()
+gb.boost()
+# gb.svr()
 gb.set_unseen_frame()
 gb.normalize_unseen()
 gb.predict()
 gb.export_results()
+
+
+# Carbon ----------- Done
+# Lesser rows element ----------- Done
+# Oxygen ---------- Done
+# Graph, without clusters - A, B, C --------- Done
+# Graph, with clusters - A, B, C ----------- Done
+# Feature Selection, on input features --------- Done
+# Actual v Expected Test --------- Done
+# Actual v Expected Amir --------- Done

@@ -328,3 +328,17 @@ class FitToConstants:
     # All the results have been updated on the master frame, convert that frame to an Excel sheet
     def export_master_frame_to_sheet(self):
         self.master_results_frame.to_excel('final_data.xlsx')
+
+    def raw_constants(self, element=None, partial_charge=None):
+        usable_frame = self.get_element_pc_frame(element, partial_charge)
+        print('STOPPAGE AT', len(usable_frame))
+        if element is None and partial_charge is None:
+            # Start first Element-PC combo
+            count = 0
+            for given_frame in usable_frame.copy():
+                num_rec = len(given_frame)
+                r2, a, b, c = self.evaluate_parameters(given_frame, False)
+                self.set_eval_data(given_frame, r2, a, b, c, num_rec, False)
+
+            self.temp_results_frame.to_excel('non_clustered_data.xlsx')
+            print("Break")
